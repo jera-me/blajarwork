@@ -10,7 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180515114921) do
+ActiveRecord::Schema.define(version: 20180515145007) do
+
+  create_table "speakers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "job"
+    t.string "category"
+    t.string "link_cv"
+    t.text "content"
+    t.string "facebook"
+    t.string "twitter"
+    t.string "instagram"
+    t.string "linkedin"
+    t.string "email"
+    t.string "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.text "content"
+    t.text "quote"
+    t.string "image"
+    t.string "video"
+    t.date "date"
+    t.integer "status"
+    t.integer "sticky_order"
+    t.integer "speaker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
