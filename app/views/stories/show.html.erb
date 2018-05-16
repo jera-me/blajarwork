@@ -17,7 +17,7 @@
                 <div class="container">
                     <div class="row justify-content-between">
                         <div class="col-md-6">
-                          <%= @stories.content %>
+                          <%= @stories.content.html_safe %>
                         </div>
                         <div class="col-md-6">
                             <div class="boxed boxed--lg boxed--border bg--secondary"> <img alt="image" src="img/education-7.jpg" class="border--round">

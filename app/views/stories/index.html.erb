@@ -56,17 +56,19 @@
                         </div>
                     </div>
                     <div class="row">
-                      <% @stories.each do |s| %>
+                      <%	 @stories.each do |w| %>
                         <div class="col-md-4">
                             <article class="feature feature-1">
-                                <%= link_to story_path(s), class: "block" do %><%= image_tag "img/blog-2.jpg" %><% end %>
-                                <div class="feature__body boxed boxed--border"> <span>May 25th 2016</span>
-                                    <h5><%= s.title.titleize %></h5> <a href="#">
-							                                 Read More
-						                         </a> </div>
+                              <%= link_to story_path(w), class: "block" do %>
+                                <%= image_tag w.image %>
+                              <% end %>
+                                <div class="feature__body boxed boxed--border"> <span><%= w.created_at.strftime("%d %b %Y") %>,</span> <em> Speaker: <%= w.speaker.name.titleize %></em>
+                                    <h5><%= w.title.titleize %></h5>
+                                    <%= link_to "Read More", story_path(w) %>
+                                </div>
                             </article>
                         </div>
-                      <% end %>
+                        <%	 end %>
                     </div>
                 </div>
             </section>
@@ -81,7 +83,7 @@
                     <div class="row">
                       <% @speaker.each do |p| %>
                         <div class="col-md-3 col-6">
-                            <a href="#" class="feature"> <%= image_tag "img/accom-1.jpg" %>
+                            <a href="#" class="feature"> <%= image_tag p.image %>
                                 <h5 class="mb--0"> <%= p.name %></h5>
                                 <div>Entire home ◦ 2 bedrooms</div>
                             </a>
