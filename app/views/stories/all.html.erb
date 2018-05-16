@@ -23,7 +23,7 @@
                   <tr>
                     <th>Create</th>
                     <th>Title</th>
-                    <th>Speaker</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -33,7 +33,7 @@
                   <tr>
                     <td><%= all.created_at.strftime("%d %b %Y") %></td>
                     <td><%= all.title %></td>
-                    <td> - </td>
+                    <td> <% if all.status == nil || '1'%> Stories <% else %> Video <% end %></td>
                     <td><%= link_to 'Edit', edit_story_path(all) %> | <%= link_to "Hapus", story_path(all), method: :delete, data: {confirm: "Yakin nih?"} %></td>
                   </tr>
                   <% end %>

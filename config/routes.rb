@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get "admin/all" => "stories#all"
+  get "admin/stories/all" => "stories#all"
 
   root "stories#index"
-  resources :stories, path: :admin
+  resources :stories
 end

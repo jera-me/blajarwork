@@ -59,7 +59,7 @@
                       <% @stories.each do |s| %>
                         <div class="col-md-4">
                             <article class="feature feature-1">
-                                <a href="#" class="block"><%= image_tag "img/blog-2.jpg" %></a>
+                                <%= link_to story_path(s), class: "block" do %><%= image_tag "img/blog-2.jpg" %><% end %>
                                 <div class="feature__body boxed boxed--border"> <span>May 25th 2016</span>
                                     <h5><%= s.title.titleize %></h5> <a href="#">
 							                                 Read More

@@ -1,0 +1,30 @@
+            <section class="switchable space--xxs switchable--switch">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="height-50 imagebg border--round" data-overlay="2">
+                                <div class="background-image-holder"><%= image_tag @stories.image %></div>
+                                <div class="pos-vertical-center col-md-6 boxed boxed--lg bg--none">
+                                    <h1><%= @stories.title.titleize %></h1>
+                                    <p class="lead"> <%= @stories.quote%> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="space--xxs">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-md-6">
+                          <%= @stories.content %>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="boxed boxed--lg boxed--border bg--secondary"> <img alt="image" src="img/education-7.jpg" class="border--round">
+                                <h5><%= @speaker.name.titleize %>, <em><%= @speaker.job.titleize %></em></h5>
+                                <p> <%= @speaker.content %> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>

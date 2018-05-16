@@ -39,6 +39,11 @@ gem 'devise'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'friendly_id', '~> 5.1.0'
+
+gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'carrierwave'
+gem 'mini_magick'
 
 
 group :development, :test do
