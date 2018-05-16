@@ -3,4 +3,8 @@ class StoriesController < ApplicationController
     @stories = Story.all
     @speaker = Speaker.all
   end
+
+  def all
+    @stories = Story.all
+  end
 end
