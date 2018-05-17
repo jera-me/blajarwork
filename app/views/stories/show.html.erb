@@ -1,10 +1,11 @@
+<%= render 'layouts/navbar' %>
             <section class="switchable space--xxs switchable--switch">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="height-50 imagebg border--round" data-overlay="2">
+                            <div class="height-50 imagebg border--round" data-overlay="8">
                                 <div class="background-image-holder"><%= image_tag @stories.image %></div>
-                                <div class="pos-vertical-center col-md-6 boxed boxed--lg bg--none">
+                                <div class="pos-vertical-center col-md-9 boxed boxed--lg bg--none">
                                     <h1><%= @stories.title.titleize %></h1>
                                     <p class="lead"> <%= @stories.quote%> </p>
                                 </div>
@@ -16,15 +17,52 @@
             <section class="space--xxs">
                 <div class="container">
                     <div class="row justify-content-between">
-                        <div class="col-md-6">
+                        <div class="col-md-9">
                           <%= @stories.content.html_safe %>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="boxed boxed--lg boxed--border bg--secondary"> <img alt="image" src="img/education-7.jpg" class="border--round">
-                                <h5><%= @speaker.name.titleize %>, <em><%= @speaker.job.titleize %></em></h5>
-                                <p> <%= @speaker.content %> </p>
-                            </div>
+                          <div class="card boxed--border bg--secondary">
+                                <div class="row ">
+                                  <div class="col-md-4">
+                                      <%= image_tag @speaker.image, class: "w-100" %>
+                                    </div>
+                                    <div class="col-md-8 px-3">
+                                      <div class="card-block boxed bg--secondary px-3">
+                                        <div class="card-title">
+                                          <strong><%= @speaker.name.titleize %>, </strong>
+                                          <em><%= @speaker.job.titleize %></em>
+                                        </div><br/>
+                                        <p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                        <p class="card-text">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+
+                                    <%= image_tag "/uploads/ckeditor/pictures/8/content_Your-Ad-Here.jpg" %>
+                                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                    <ins class="adsbygoogle"
+                                         style="display:block"
+                                         data-ad-format="fluid"
+                                         data-ad-layout-key="-6t+ed+2i-1n-4w"
+                                         data-ad-client="ca-pub-4268093070731551"
+                                         data-ad-slot="9871770800"></ins>
+                                    <script>
+                                         (adsbygoogle = window.adsbygoogle || []).push({});
+                                    </script>
+
+                                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                    <!-- Panjang Vertikal -->
+                                    <ins class="adsbygoogle"
+                                         style="display:inline-block;width:300px;height:600px"
+                                         data-ad-client="ca-pub-4268093070731551"
+                                         data-ad-slot="5039080670"></ins>
+                                    <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                    </script>
+
+                              </div>
                         </div>
                     </div>
-                </div>
             </section>
+            <%= render 'layouts/footer' %>

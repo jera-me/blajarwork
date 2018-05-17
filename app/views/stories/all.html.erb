@@ -1,3 +1,4 @@
+<%= render 'layouts/navbar' %>
 <section class="switchable space--xxs switchable--switch">
     <div class="container">
         <div class="row">
@@ -43,11 +44,20 @@
 
                 </div>
             <div class="col-md-3">
-                <div class="boxed boxed--lg boxed--border bg--secondary">
-                    <h5>Save Development Time</h5>
-                    <p> Drastically reduce the time it takes to move from initial concept to production-ready with Stack and Variant Page Builder. Your clients will love you for it! </p>
+                <div class="boxed boxed--lg boxed--border bg--secondary center">
+                    <h5>Menu</h5>
+                    <ul>
+                        <li>
+                          <%= link_to new_story_path, class: "btn btn--sm btn--primary type--uppercase" do %>
+                            <span class="btn__text">
+                            Add Story
+                            </span>
+                          <% end %>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<%= render 'layouts/footer' %>

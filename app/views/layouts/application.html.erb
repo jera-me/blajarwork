@@ -9,13 +9,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700" rel="stylesheet">
     <script src="https://cdn.ckeditor.com/4.9.2/full-all/ckeditor.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 
   </head>
 
   <body data-smooth-scroll-offset="77">
-    <%= render 'layouts/navbar' %>
+
     <%= yield %>
-    <%= render 'layouts/footer' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

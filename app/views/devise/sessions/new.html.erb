@@ -1,0 +1,38 @@
+        <div class="nav-container"> </div>
+        <div class="main-container">
+            <section class="height-100 imagebg text-center" data-overlay="4">
+                <div class="background-image-holder"><%= image_tag "img/inner-6.jpg" %></div>
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-md-7 col-lg-5">
+                            <h2>Login to continue</h2>
+                            <p class="lead"> Welcome back, sign in with your existing Belajar account credentials </p>
+                              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                            <form>
+                                <div class="row">
+                                      <div class="col-md-12">
+                                        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Username" %>
+                                      </div>
+
+                                      <div class="col-md-12">
+                                        <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+                                      </div>
+
+                                      <% if devise_mapping.rememberable? -%>
+                                        <div class="col-md-12">
+                                          <%= f.check_box :remember_me %>
+                                          <%= f.label :remember_me %>
+                                        </div>
+                                      <% end -%>
+
+                                      <div class="col-md-12">
+                                        <%= f.submit "Log in", class:"btn btn--primary type--uppercase" %>
+                                      </div>
+                                </div>
+                             </form><% end %><span class="type--fine-print block"><%= render "devise/shared/links" %></span> </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        

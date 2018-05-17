@@ -27,13 +27,14 @@
                             <li> <a href="#">Upcoming</a> </li>
                             <li> <a href="#">Stories</a> </li>
                             <li> <a href="#">Speakers</a> </li>
-                            <li class="dropdown"> <span class="dropdown__trigger">Admin</span>
+                            <% if user_signed_in? %>
+                            <li class="dropdown"> <span class="dropdown__trigger">Halo Admin!</span>
                                 <div class="dropdown__container">
                                     <div class="container">
                                         <div class="row">
                                             <div class="dropdown__content col-lg-2">
                                                 <ul class="menu-vertical">
-                                                    <li> <a href="#">Stories</a> </li>
+                                                    <li> <%= link_to 'Stories', admin_stories_all_path %> </li>
                                                     <li> <a href="#">Speakers</a> </li>
                                                     <li> <a href="#">Users</a> </li>
                                                 </ul>
@@ -42,16 +43,30 @@
                                     </div>
                                 </div>
                             </li>
+                            <% end %>
                         </ul>
                     </div>
-                    <div class="bar__module">
-                        <a class="btn btn--sm type--uppercase" href="#customise-template"> <span class="btn__text">
-                        Try Builder
-                    </span> </a>
-                        <a class="btn btn--sm btn--primary type--uppercase" href="#purchase-template"> <span class="btn__text">
-                        Buy Now
-                    </span> </a>
-                    </div>
+                   <div class="bar__module">
+                     <% if user_signed_in? %>
+                       <%= link_to destroy_user_session_path, method: :delete, class: "btn btn--sm btn--primary type--uppercase" do %>
+                         <span class="btn__text">
+                         Logout
+                         </span>
+                       <% end %>
+                     <% else %>
+                       <%= link_to new_user_registration_path, class: "btn btn--sm type--uppercase" do %>
+                         <span class="btn__text">
+                           Register
+                         </span>
+                       <% end %>
+                       <%= link_to user_session_path, class: "btn btn--sm btn--primary type--uppercase" do %>
+                         <span class="btn__text">
+                         Login
+                         </span>
+                       <% end %>
+                     <% end %>
+
+                  </div>
                 </div>
             </div>
         </div>

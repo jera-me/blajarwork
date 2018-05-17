@@ -1,8 +1,9 @@
+<%= render 'layouts/navbar' %>
             <section class="switchable imagebg" data-overlay="8">
-                <div class="background-image-holder"> <%= image_tag "img/cowork-7.jpg" %> </div>
+                <div class="background-image-holder"> <%= image_tag "/uploads/ckeditor/pictures/14/content_drone-3.jpg" %> </div>
                 <div class="container">
                     <div class="row justify-content-between">
-                        <div class="text-center col-md-6"> <%= image_tag "img/cowork-11.jpg", class: "border--round box-shadow-wide" %> </div>
+                        <div class="text-center col-md-6"> <%= image_tag "/uploads/ckeditor/pictures/15/content_cowork-5.jpg", class: "border--round box-shadow-wide" %> </div>
                         <div class="col-md-6 col-lg-5">
                             <ol class="process-3">
                                 <li class="process_item">
@@ -62,7 +63,7 @@
                               <%= link_to story_path(w), class: "block" do %>
                                 <%= image_tag w.image %>
                               <% end %>
-                                <div class="feature__body boxed boxed--border"> <span><%= w.created_at.strftime("%d %b %Y") %>,</span> <em> Speaker: <%= w.speaker.name.titleize %></em>
+                                <div class="feature__body boxed boxed--border"> <em> Speaker: <%= w.speaker.name.titleize %></em>
                                     <h5><%= w.title.titleize %></h5>
                                     <%= link_to "Read More", story_path(w) %>
                                 </div>
@@ -85,10 +86,11 @@
                         <div class="col-md-3 col-6">
                             <a href="#" class="feature"> <%= image_tag p.image %>
                                 <h5 class="mb--0"> <%= p.name %></h5>
-                                <div>Entire home ◦ 2 bedrooms</div>
+                                <div><%= p.job.titleize %></div>
                             </a>
                         </div>
                         <% end %>
                     </div>
                 </div>
             </section>
+            <%= render 'layouts/footer' %>

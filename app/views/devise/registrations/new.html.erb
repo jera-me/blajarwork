@@ -1,0 +1,54 @@
+        <div class="nav-container"> </div>
+        <div class="main-container">
+            <section class="imageblock switchable feature-large height-100">
+                <div class="imageblock__content col-lg-6 col-md-4 pos-right">
+                    <div class="background-image-holder"> <%= image_tag "img/inner-9.jpg" %> </div>
+                </div>
+                <div class="container pos-vertical-center">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-7">
+                            <h2>Create a Belajar account</h2>
+                            <p class="lead">Get started with a lifetime free trial, No credit card required — cancel at any time.</p>
+                            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                            <form>
+                                <div class="row">
+                                    
+                                      <%= devise_error_messages! %>
+
+                                      <div class="col-12">
+                                        <%= f.label :email %><br />
+                                        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                                      </div>
+
+                                      <div class="col-12">
+                                        <%= f.label :password %>
+                                        <% if @minimum_password_length %>
+                                        <em>(<%= @minimum_password_length %> characters minimum)</em>
+                                        <% end %><br />
+                                        <%= f.password_field :password, autocomplete: "off" %>
+                                      </div>
+
+                                      <div class="col-12">
+                                        <%= f.label :password_confirmation %><br />
+                                        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                                      </div>
+
+                                      <div class="col-12">
+                                        <%= f.submit "Sign up", class: "btn btn--primary type--uppercase" %>
+                                      </div>
+
+
+
+                                    <div class="col-12"> <span class="type--fine-print">If you already have an account please <%= render "devise/shared/links" %></span> </div>
+
+
+
+
+
+                                </div>
+                            </form><% end %>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
