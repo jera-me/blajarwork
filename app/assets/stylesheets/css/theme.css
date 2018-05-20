@@ -4224,7 +4224,6 @@ label a {
   line-height: 1.85714286em;
 }
 p + a:not(.btn) {
-  font-size: 0.85714286em;
   line-height: 2.16666667em;
 }
 .imagebg:not(.image--light) a {

@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   root "stories#index"
   resources :stories
-  resources :speakers
+  resources :speakers, path: :speaker
 end
