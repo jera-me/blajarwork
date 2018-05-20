@@ -1,18 +1,13 @@
 class StoriesController < ApplicationController
   def index
     @stories = Story.order(created_at: :desc).limit(9)
-
     @speaker = Speaker.all
 
   end
 
   def all
-    if user_signed_in?
-      @stories = Story.order(created_at: :desc)
-      @speaker = Speaker.all
-    else
-      redirect_to root_path
-    end
+    @stories = Story.order(created_at: :desc)
+    authorize @stories
   end
 
   def show
@@ -21,12 +16,9 @@ class StoriesController < ApplicationController
   end
 
   def new
-    if user_signed_in?
       @stories = Story.new
       @speaker = Speaker.all
-    else
-      redirect_to root_path
-    end
+      authorize @stories
   end
 
   def create
@@ -36,23 +28,23 @@ class StoriesController < ApplicationController
   end
 
   def edit
-    if user_signed_in?
       @stories = Story.friendly.find(params[:id])
       @speaker = Speaker.all
-    else
-      redirect_to root_path
-    end
+      authorize @stories
+      
   end
 
   def update
     @stories = Story.friendly.find(params[:id])
     @stories.update(resource_params)
+    authorize @stories
     redirect_to admin_stories_all_path
   end
 
   def destroy
     @stories = Story.friendly.find(params[:id])
     @stories.destroy
+    authorize @stories
     redirect_to admin_stories_all_path
   end
 
