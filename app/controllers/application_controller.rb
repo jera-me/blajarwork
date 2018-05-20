@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :exception
   rescue_from Pundit::NotAuthorizedError, with: :pundit_error
-  rescue_from NoMethodError, with: :pundit_error
+  #rescue_from NoMethodError, with: :pundit_error
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 

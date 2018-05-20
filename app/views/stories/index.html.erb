@@ -83,13 +83,15 @@
                     </div>
                     <div class="row">
                       <% @speaker.each do |p| %>
-                        <div class="col-md-3 col-6">
-                            <a href="#" class="feature"> <%= image_tag p.image %>
+                        <div class="col-md-3 col-6 feature-1">
+                            <%= link_to speaker_path(p), class: "feature feature-1 block" do %> <%= image_tag p.image %>
+                            <div class="boxed--border">
                                 <h5 class="mb--0"> <%= p.name %></h5>
                                 <div><%= p.job.titleize %></div>
-                            </a>
+                            </div>
+                           <% end %>
                         </div>
-                        <% end %>
+                      <% end %>
                     </div>
                 </div>
             </section>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180517141115) do
+ActiveRecord::Schema.define(version: 20180520123123) do
 
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "data_file_name", null: false
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20180517141115) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image", default: "/uploads/ckeditor/pictures/10/content_profile.png", null: false
+    t.string "username"
+    t.string "slug"
   end
 
   create_table "stories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

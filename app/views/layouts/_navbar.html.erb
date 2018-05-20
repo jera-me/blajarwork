@@ -26,7 +26,7 @@
                             <li> <%= link_to 'Home', root_path %> </li>
                             <li> <a href="#">Upcoming</a> </li>
                             <li> <a href="#">Stories</a> </li>
-                            <li> <a href="#">Speakers</a> </li>
+                            <li> <%= link_to 'Speaker', speakers_path %> </li>
                             <% if user_signed_in? %>
                               <% if current_user.level == "admin" %>
                             <li class="dropdown"> <span class="dropdown__trigger">Halo Admin!</span>
@@ -36,7 +36,7 @@
                                             <div class="dropdown__content col-lg-2">
                                                 <ul class="menu-vertical">
                                                     <li> <%= link_to 'Stories', admin_stories_all_path %> </li>
-                                                    <li> <a href="#">Speakers</a> </li>
+                                                    <li> <%= link_to 'Speakers', admin_speaker_all_path %> </li>
                                                     <li> <a href="#">Users</a> </li>
                                                 </ul>
                                             </div>

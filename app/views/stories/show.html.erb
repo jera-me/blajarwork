@@ -14,10 +14,10 @@
                     </div>
                 </div>
             </section>
-            <section class="space--xxs">
+            <section class="space--xxs ">
                 <div class="container">
                     <div class="row justify-content-between">
-                        <div class="col-md-9 boxed--border border--round bg--secondary">
+                        <div class="col-md-9 boxed--border border--round bg--secondary border--round box-shadow-wide">
                           <%= @stories.content.html_safe %><hr/>
                           <div class="card boxed--border bg--secondary">
                                 <div class="row ">
@@ -29,16 +29,78 @@
                                         <div class="card-title">
                                           <strong><%= @speaker.name.titleize %>, </strong>
                                           <em><%= @speaker.job.titleize %></em>
-                                        </div><br/>
-                                        <p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                                        <p class="card-text">
+                                        </div>
+                                        <div class="card-text">
+                                          <% if @speaker.content %>
+                                            <%= @speaker.content.html_safe %>
+                                          <% end %>
+                                          <ul class="social-list list-inline list--hover">
+                                              <li class="list-inline-item">
+                                                  <%= link_to @speaker.link_cv, class: "btn btn--sm btn--primary type--uppercase" do %>
+                                                    <span class="btn__text">
+                                                    Download CV
+                                                    </span>
+                                                  <% end %>
+                                              </li>
+
+                                              <% if @speaker.facebook %>
+                                              <li class="list-inline-item">
+                                                  <%= link_to @speaker.facebook do %>
+                                                    <i class="socicon socicon-facebook icon icon--xs">
+                                                    </i>
+                                                  <% end %>
+                                              </li>
+                                              <% end %>
+
+                                              <% if @speaker.twitter %>
+                                              <li class="list-inline-item">
+                                                  <%= link_to @speaker.twitter do %>
+                                                    <i class="socicon socicon-twitter icon icon--xs">
+                                                    </i>
+                                                  <% end %>
+                                              </li>
+                                              <% end %>
+
+                                              <% if @speaker.instagram %>
+                                              <li class="list-inline-item">
+                                                  <%= link_to @speaker.instagram do %>
+                                                    <i class="socicon socicon-instagram icon icon--xs">
+                                                    </i>
+                                                  <% end %>
+                                              </li>
+                                              <% end %>
+
+                                              <% if @speaker.linkedin %>
+                                              <li class="list-inline-item">
+                                                  <%= link_to @speaker.linkedin do %>
+                                                    <i class="socicon socicon-linkedin icon icon--xs">
+                                                    </i>
+                                                  <% end %>
+                                              </li>
+                                              <% end %>
+
+                                              <% if @speaker.email %>
+                                              <li class="list-inline-item">
+                                                  <%= mail_to @speaker.email do %>
+                                                    <i class="socicon socicon-mail icon icon--xs">
+                                                    </i>
+                                                  <% end %>
+                                              </li>
+                                              <% end %>
+
+                                              <% if @speaker.website %>
+                                              <li class="list-inline-item">
+                                                  <%= link_to @speaker.website do %>
+                                                    <i class="socicon socicon-rss icon icon--xs">
+                                                    </i>
+                                                  <% end %>
+                                              </li>
+                                              <% end %>
+
+                                          </ul>
+                                        </div>
                                       </div>
-
-
-
                                     </div>
-
-
                                   </div>
                                 </div><hr/>
 
