@@ -1,54 +1,6 @@
 <%= render 'layouts/navbar' %>
-            <section class="switchable imagebg" data-overlay="8">
-                <div class="background-image-holder"> <%= image_tag "/uploads/ckeditor/pictures/14/content_drone-3.jpg" %> </div>
-                <div class="container">
-                    <div class="row justify-content-between">
-                        <div class="text-center col-md-6"> <%= image_tag "/uploads/ckeditor/pictures/15/content_cowork-5.jpg", class: "border--round box-shadow-wide" %> </div>
-                        <div class="col-md-6 col-lg-5">
-                            <ol class="process-3">
-                                <li class="process_item">
-                                    <div class="process__number"><span>1</span></div>
-                                    <div class="process__body">
-                                        <h4>Berkenalan Dengan Dosen Muda, Yang Muda Yang Berkarya!</h4>
-                                        <p>Date: 19 May 2018, <em>Speaker: Bara Yudhistira, S.Tp., M.Sc</em></p>
-                                    </div>
-                                </li>
-                                <li class="process_item">
-                                    <div class="process__number"><span>2</span></div>
-                                    <div class="process__body">
-                                        <h4>Siti Zulaikha, Dari Pengabdian Di KKN Sampai Aktifis Childhood Cancer Care</h4>
-                                        <p>Date: 25 May 2018, <em>Speaker: <em>Siti Zulaikha</em></em>
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="process_item">
-                                    <div class="process__number"><span>3</span></div>
-                                    <div class="process__body">
-                                        <h4>A young girl who fights for the welfare of the workers around Central Java.</h4>
-                                        <p>Date: 30 May 2018, <em>Speaker: <em>Siti Zulaikha</em></em>
-                                        </p>
-                                    </div>
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="border--bottom space--xxs text-center bg--secondary">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="modal-instance">
-                                <a class="btn type--uppercase modal-trigger" href="#"> <span class="btn__text">
-							▶ Watch Overview
-						</span> </a>
-                                <div class="modal-container">
-                                    <div class="modal-content bg-dark" data-width="60%" data-height="60%"> <iframe data-src="https://www.youtube.com/embed/6p45ooZOOPo?autoplay=1" allowfullscreen="allowfullscreen"></iframe> </div>
-                                </div>
-                            </div> <span class="block--xs">and see how Belajar makes your life fun</span> </div>
-                    </div>
-                </div>
-            </section>
+
+
             <section class="space--xxs">
                 <div class="container">
                     <div class="row text-block">
@@ -73,26 +25,5 @@
                     </div>
                 </div>
             </section>
-            <section class="bg--secondary space--xs">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6">
-                            <h4>Featured Speaker</h4>
-                        </div>
-                        <div class="col-6 text-right"> <a href="#">View more</a> </div>
-                    </div>
-                    <div class="row">
-                      <% @speaker.each do |p| %>
-                        <div class="col-md-3 col-6 feature-1">
-                            <%= link_to speaker_path(p), class: "feature feature-1 block" do %> <%= image_tag p.image %>
-                            <div class="boxed--border">
-                                <h5 class="mb--0"> <%= p.name %></h5>
-                                <div><%= p.job.titleize %></div>
-                            </div>
-                           <% end %>
-                        </div>
-                      <% end %>
-                    </div>
-                </div>
-            </section>
+            
             <%= render 'layouts/footer' %>

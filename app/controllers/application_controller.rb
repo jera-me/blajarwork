@@ -4,6 +4,12 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :pundit_error
   #rescue_from NoMethodError, with: :pundit_error
 
+  BRAND_NAME = 'Zynau'.freeze
+
+  def meta_title(title)
+    [title, BRAND_NAME].reject(&:empty?).join(' | ')
+  end
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private

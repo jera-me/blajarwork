@@ -27,8 +27,8 @@
                                     <div class="col-md-8 px-3">
                                       <div class="card-block boxed bg--secondary px-3">
                                         <div class="card-title">
-                                          <strong><%= @speaker.name.titleize %>, </strong>
-                                          <em><%= @speaker.job.titleize %></em>
+                                          <strong><%= @speaker.name.titleize %>,  </strong>
+                                          <em><%= @speaker.job.titleize %> <%if @speaker.category == "admin" %><i class="fa fa-check-circle" title="Admin"></i> <%end%> </em>
                                         </div>
                                         <div class="card-text">
                                           <% if @speaker.content %>
@@ -43,7 +43,7 @@
                                                   <% end %>
                                               </li>
 
-                                              <% if @speaker.facebook %>
+                                              <% if @speaker.facebook.present? %>
                                               <li class="list-inline-item">
                                                   <%= link_to @speaker.facebook do %>
                                                     <i class="socicon socicon-facebook icon icon--xs">
@@ -52,7 +52,7 @@
                                               </li>
                                               <% end %>
 
-                                              <% if @speaker.twitter %>
+                                              <% if @speaker.twitter.present? %>
                                               <li class="list-inline-item">
                                                   <%= link_to @speaker.twitter do %>
                                                     <i class="socicon socicon-twitter icon icon--xs">
@@ -61,7 +61,7 @@
                                               </li>
                                               <% end %>
 
-                                              <% if @speaker.instagram %>
+                                              <% if @speaker.instagram.present? %>
                                               <li class="list-inline-item">
                                                   <%= link_to @speaker.instagram do %>
                                                     <i class="socicon socicon-instagram icon icon--xs">
@@ -70,7 +70,7 @@
                                               </li>
                                               <% end %>
 
-                                              <% if @speaker.linkedin %>
+                                              <% if @speaker.linkedin.present? %>
                                               <li class="list-inline-item">
                                                   <%= link_to @speaker.linkedin do %>
                                                     <i class="socicon socicon-linkedin icon icon--xs">
@@ -79,7 +79,7 @@
                                               </li>
                                               <% end %>
 
-                                              <% if @speaker.email %>
+                                              <% if @speaker.email.present? %>
                                               <li class="list-inline-item">
                                                   <%= mail_to @speaker.email do %>
                                                     <i class="socicon socicon-mail icon icon--xs">
@@ -88,7 +88,7 @@
                                               </li>
                                               <% end %>
 
-                                              <% if @speaker.website %>
+                                              <% if @speaker.website.present? %>
                                               <li class="list-inline-item">
                                                   <%= link_to @speaker.website do %>
                                                     <i class="socicon socicon-rss icon icon--xs">

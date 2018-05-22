@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-3 col-md-2">
-                  <a href="index.html"> <%= image_tag "img/logo-dark.png", class: "logo logo-dark" %> <%= image_tag "img/logo-light.png", class: "logo logo-light" %> </a>
+                  <%= link_to root_path do %> <%= image_tag "img/logo-dark.png", class: "logo logo-dark" %> <%= image_tag "img/logo-light.png", class: "logo logo-light" %> <% end %>
                 </div>
                 <div class="col-9 col-md-10 text-right">
                     <a href="#" class="hamburger-toggle" data-toggle-class="#menu1;hidden-xs hidden-sm"> <i class="icon icon--sm stack-interface stack-menu"></i> </a>
@@ -17,15 +17,15 @@
             <div class="row">
                 <div class="col-lg-1 col-md-2 hidden-xs">
                     <div class="bar__module">
-                        <a href="index.html"> <%= image_tag "img/logo-dark.png", class: "logo logo-dark" %> <%= image_tag "img/logo-light.png", class: "logo logo-light" %> </a>
+                        <%= link_to root_path do %> <%= image_tag "img/logo-dark.png", class: "logo logo-dark" %> <%= image_tag "img/logo-light.png", class: "logo logo-light" %> <% end %>
                     </div>
                 </div>
                 <div class="col-lg-11 col-md-12 text-right text-left-xs text-left-sm">
                     <div class="bar__module">
                         <ul class="menu-horizontal text-left">
                             <li> <%= link_to 'Home', root_path %> </li>
-                            <li> <a href="#">Upcoming</a> </li>
-                            <li> <a href="#">Stories</a> </li>
+                            <li> <%= link_to 'Webinar', webinars_path %> </li>
+                            <li> <%= link_to 'Stories', stories_path %> </li>
                             <li> <%= link_to 'Speaker', speakers_path %> </li>
                             <% if user_signed_in? %>
                               <% if current_user.level == "admin" %>
@@ -37,7 +37,7 @@
                                                 <ul class="menu-vertical">
                                                     <li> <%= link_to 'Stories', admin_stories_all_path %> </li>
                                                     <li> <%= link_to 'Speakers', admin_speaker_all_path %> </li>
-                                                    <li> <a href="#">Users</a> </li>
+                                                    <li> <a href="#">Webinar</a> </li>
                                                 </ul>
                                             </div>
                                         </div>

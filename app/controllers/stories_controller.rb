@@ -3,6 +3,17 @@ class StoriesController < ApplicationController
     @stories = Story.order(created_at: :desc).limit(9)
     @speaker = Speaker.all
 
+    @meta_title = meta_title 'Home'
+    @webinar = Webinar.order(date: :asc).limit(4)
+    @webinars = Webinar.order(date: :asc).limit(2)
+  end
+  def home
+    @stories = Story.order(created_at: :desc).limit(9)
+    @speaker = Speaker.all
+
+    @meta_title = meta_title 'Home'
+    @webinar = Webinar.order(date: :asc).limit(4)
+    @webinars = Webinar.order(date: :asc).limit(2)
   end
 
   def all
@@ -13,6 +24,18 @@ class StoriesController < ApplicationController
   def show
     @stories = Story.friendly.find(params[:id])
     @speaker = @stories.speaker
+    @meta_title = meta_title @stories.title
+    @meta_description = @stories.quote.gsub('“','')
+
+    @meta_keyword = @stories.slug.gsub('-', ',')
+    @root_path = root_path
+    @canonical_url = "https://zynau.com/stories/#{@stories.slug}"
+    @og_properties = {
+      title: @meta_title,
+      type:  'website',
+      image: view_context.image_url(@stories.image),  # this file should exist in /app/assets/images/logo.png
+      url: @canonical_url
+      }
   end
 
   def new
@@ -31,7 +54,7 @@ class StoriesController < ApplicationController
       @stories = Story.friendly.find(params[:id])
       @speaker = Speaker.all
       authorize @stories
-      
+
   end
 
   def update

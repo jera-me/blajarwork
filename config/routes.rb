@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "admin/stories/all" => "stories#all"
   get "admin/speaker/all" => "speakers#all"
+  get "admin/webinar/all" => "webinars#all"
 
-  root "stories#index"
+  root "stories#home"
   resources :stories
   resources :speakers, path: :speaker
+  resources :webinars, path: :webinar
 end

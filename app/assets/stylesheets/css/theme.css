@@ -7203,20 +7203,20 @@ a[data-lightbox]:hover {
   width: 3.71428571em;
   height: 3.71428571em;
   border-radius: 50%;
-  border: 2px solid #4a90e2;
-  background: #fff;
-  text-align: center;
+
+  text-align: left;
 }
 .process-3 li .process__number span {
-  font-size: 1.35714286em;
+  font-size: 18px;
   font-weight: bold;
-  color: #4a90e2;
-  position: relative;
-  top: 12px;
+  color: #fff;
+  position: sticky;
+
 }
 .process-3 li .process__body {
-  width: 80%;
-  float: right;
+  width: 75%;
+  float: left;
+
 }
 .process-3 li .process__body h4 {
   margin-bottom: 0.342105263157895em;
@@ -7225,13 +7225,13 @@ a[data-lightbox]:hover {
   margin-bottom: 3.71428571em;
 }
 .process-3:before {
-  content: '';
+
   position: absolute;
   height: 100%;
   width: 1px;
   left: 1.85714286em;
   top: 0;
-  border-left: 1px dashed #ddd;
+  border-right: 1px dashed #ddd;
 }
 .bg--dark .process-3 li .process__number {
   background: #252525;
