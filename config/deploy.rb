@@ -4,7 +4,7 @@ lock '3.10.2'
 set :application, 'Zynau'
 set :repo_url, 'https://github.com/jera-me/blajarwork.git'
 
-set :deploy_to, '/home/project/belajar'
+set :deploy_to, '/home/deploy/belajar'
 
 append :linked_files, "config/database.yml", "config/secrets.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
