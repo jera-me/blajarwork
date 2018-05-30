@@ -1,0 +1,92 @@
+<%= render 'layouts/navbar' %>
+<section class="switchable space--xxs switchable--switch">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="height-50 imagebg border--round" data-overlay="2">
+                    <div class="background-image-holder"><%= image_tag "img/education-3.jpg" %></div>
+                    <div class="pos-vertical-center col-md-6 boxed boxed--lg bg--none">
+                        <h2>Admin Dashboard</h2>
+                        <p class="lead"> Tambahkan sebuah story atau speaker yang menurut kamu layak untuk di Tambahkan. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="space--xxs">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-md-9">
+                <h4>Speakers -- All</h4>
+                <%= form_for @speakers do |f| %>
+                  <form class="row">
+                    <div class="col-md-12">
+                      <%= f.label :name %>
+                      <%= f.text_field :name, placeholder: "Type Name Here" %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :username %>
+                      <%= f.text_field :username, placeholder: "tanpa spasi tanpa gelar" %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :job %>
+                      <%= f.text_field :job, placeholder: "Type Job Here" %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :link_cv %>
+                      <%= f.text_field :link_cv, placeholder: "Type Link CV Here" %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :content %>
+                      <%= f.cktext_area :content %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :facebook %>
+                      <%= f.text_field :facebook %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :twitter %>
+                      <%= f.text_field :twitter %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :instagram %>
+                      <%= f.text_field :instagram %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :linkedin %>
+                      <%= f.text_field :linkedin %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :email %>
+                      <%= f.email_field :email %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :website %>
+                      <%= f.text_field :website %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :image %>
+                      <%= f.text_field :image %>
+                    </div>
+		    <div class="col-md-12">
+                      <%= f.label :category %>
+                    <%= f.text_field :category %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.submit 'Buat Story!', class: "btn btn--primary" %>
+                    </div>
+                  </form>
+                <% end %>
+
+                </div>
+            <div class="col-md-3">
+                <div class="boxed boxed--lg boxed--border bg--secondary">
+                    <h5>Save Development Time</h5>
+                    <p> Drastically reduce the time it takes to move from initial concept to production-ready with Stack and Variant Page Builder. Your clients will love you for it! </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<%= render 'layouts/footer' %>

@@ -1,0 +1,86 @@
+<%= render 'layouts/navbar' %>
+
+<section class="switchable space--xxs switchable--switch">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="height-50 imagebg border--round" data-overlay="2">
+                    <div class="background-image-holder"><%= image_tag "img/education-3.jpg" %></div>
+                    <div class="pos-vertical-center col-md-6 boxed boxed--lg bg--none">
+                        <h2>Admin Dashboard</h2>
+                        <p class="lead"> Tambahkan sebuah story atau speaker yang menurut kamu layak untuk di Tambahkan. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="space--xxs">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-md-9">
+                <h4>Webinars -- All</h4>
+                <%= form_for @webinars do |f| %>
+                  <form class="form-inline">
+                    <div class="col-md-12">
+                      <%= f.label :title %>
+                      <%= f.text_field :title %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :content %>
+                      <%= f.cktext_area :content %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :date %><br>
+                      <%= f.datetime_select :date,
+                       {
+                        :order => [:day, :month, :year],
+                        :start_year => Time.now.year - 1,
+                        :end_year => Time.now.year + 2
+                       } %>
+
+                    </div>
+
+                    <div class="col-md-12">
+                      <%= f.label :enddate %><br>
+                      <%= f.datetime_select :enddate,
+                       {
+                        :order => [:day, :month, :year],
+                        :start_year => Time.now.year - 1,
+                        :end_year => Time.now.year + 2
+                       } %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :video %>
+                      <%= f.text_field :video %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :image %>
+                      <%= f.text_field :image %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :link %>
+                      <%= f.text_field :link %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.label :speaker %><br />
+                      <%= f.collection_select :speaker_id, @speaker, :id, :name, :prompt => "Select Speaker" %>
+                    </div>
+                    <div class="col-md-12">
+                      <%= f.submit 'Create Webinar!', class: "btn btn--primary" %>
+                    </div>
+                  </form>
+
+                <% end %>
+
+                </div>
+            <div class="col-md-3">
+                <div class="boxed boxed--lg boxed--border bg--secondary">
+                    <h5>Save Development Time</h5>
+                    <p> Drastically reduce the time it takes to move from initial concept to production-ready with Stack and Variant Page Builder. Your clients will love you for it! </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<%= render 'layouts/footer' %>

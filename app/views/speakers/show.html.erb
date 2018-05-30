@@ -1,0 +1,89 @@
+<%= render 'layouts/navbar' %>
+              <section class="switchable feature-large feature-large-13 space--sm border--round box-shadow">
+                  <div class="container">
+                      <div class="row justify-content-between">
+                          <div class="col-md-6"> <%= image_tag  @speakers.image, class: "border--round box-shadow-wide" %> </div>
+                          <div class="col-md-6 col-lg-5">
+                              <div class="switchable__text">
+                                    <em><%= @speakers.job %></em>
+                                    <h1><%= @speakers.name %> <%if @speakers.category == "admin" %><i class="fa fa-check-circle" title="Admin"></i> <%end%></h1><hr>
+                                    <% if @speakers.content %>
+                                      <%= @speakers.content.html_safe %>
+                                    <%end%>
+                                    <% @speakers.stories.each do |s| %>
+                                        <%= link_to story_path(s) do %>
+                                          <li><%= s.title %></li>
+                                        <% end %>
+                                    <% end %>
+                                    <br/>
+                                      <ul class="social-list list-inline list--hover">
+                                          <li class="list-inline-item">
+                                              <%= link_to @speakers.link_cv, class: "btn btn--sm btn--primary type--uppercase" do %>
+                                                <span class="btn__text">
+                                                CV
+                                                </span>
+                                              <% end %>
+                                          </li>
+
+                                          <% if @speakers.facebook.present? %>
+                                          <li class="list-inline-item">
+                                              <%= link_to @speakers.facebook do %>
+                                                <i class="socicon socicon-facebook icon icon--xs">
+                                                </i>
+                                              <% end %>
+                                          </li>
+                                          <% end %>
+
+                                          <% if @speakers.twitter.present? %>
+                                          <li class="list-inline-item">
+                                              <%= link_to @speakers.twitter do %>
+                                                <i class="socicon socicon-twitter icon icon--xs">
+                                                </i>
+                                              <% end %>
+                                          </li>
+                                          <% end %>
+
+                                          <% if @speakers.instagram.present? %>
+                                          <li class="list-inline-item">
+                                              <%= link_to @speakers.instagram do %>
+                                                <i class="socicon socicon-instagram icon icon--xs">
+                                                </i>
+                                              <% end %>
+                                          </li>
+                                          <% end %>
+
+                                          <% if @speakers.linkedin.present? %>
+                                          <li class="list-inline-item">
+                                              <%= link_to @speakers.linkedin do %>
+                                                <i class="socicon socicon-linkedin icon icon--xs">
+                                                </i>
+                                              <% end %>
+                                          </li>
+                                          <% end %>
+
+                                          <% if @speakers.email.present? %>
+                                          <li class="list-inline-item">
+                                              <%= mail_to @speakers.email do %>
+                                                <i class="socicon socicon-mail icon icon--xs">
+                                                </i>
+                                              <% end %>
+                                          </li>
+                                          <% end %>
+
+                                          <% if @speakers.website.present? %>
+                                          <li class="list-inline-item">
+                                              <%= link_to @speakers.website do %>
+                                                <i class="socicon socicon-rss icon icon--xs">
+                                                </i>
+                                              <% end %>
+                                          </li>
+                                          <% end %>
+
+                                      </ul>
+
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </section>
+<%= render 'layouts/footer' %>

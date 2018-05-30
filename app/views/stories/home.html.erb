@@ -1,0 +1,125 @@
+<%= render 'layouts/navbar' %>
+            <section class="switchable imagebg" data-overlay="8">
+                <div class="background-image-holder"> <%= image_tag "/uploads/ckeditor/pictures/14/content_drone-3.jpg" %> </div>
+                <div class="container">
+                    <div class="row pos-absolute.container ">
+                        <div class="text-center col-sm">
+
+
+
+			<% @webinars.each do |w| %>
+                          <% if w.enddate - Time.now > 0.1  %>
+                            <%= image_tag w.image, class: "border--round box-shadow-wide" %>
+
+
+                          <% end %>
+                        <% end %>
+
+                        </div>
+                        <div class="col-sm-5 ">
+                            <ol class="process-3">
+                              <% @webinar.each do |w| %>
+                              <% if w.enddate - Time.now > 0.1  %>
+                                <li class="process_item">
+                                    <div class="process__number col-sm">
+                                      <span>
+                                        <%= if  ((w.date - Time.now) / 3600).round(2) < 1
+                                            "▶Live Now"
+                                            elsif ((w.date - Time.now) / 3600).round(2) < 24
+                                               "#{((w.date - Time.now) / 3600).round} Jam Lagi"
+                                            elsif ((w.date - Time.now) / 3600).round(2) < 168
+                                              "#{(((w.date - Time.now) / 3600)/24).round} Hari Lagi"
+                                            else ((w.date - Time.now) / 3600).round(2) > 168
+                                              "#{((((w.date - Time.now) / 3600)/24)/7).round} Minggu Lagi"
+                                            end
+                                        %>
+                                      </span>
+                                    </div>
+                                    <div class="process__body col-sm">
+                                        <%= link_to webinar_path(w) do %><h4><%= w.title %></h4><% end %>
+                                        <p>Date: <%= w.date.strftime("%d %b %Y, Pukul %H:%M ") %>
+                                      <br> <em>Speaker: <%= w.speaker.name %> <%if w.speaker.category == "admin" %><i class="fa fa-check-circle" title="Admin"></i> <%end%></em></p>
+                                    </div>
+                                </li>
+                                <% end %>
+                              <% end %>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="border--bottom space--xxs text-center bg--secondary">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="modal-instance">
+                                <a class="btn type--uppercase modal-trigger" href="#"> <span class="btn__text">
+                							▶ Watch Overview
+                						</span> </a>
+                                <div class="modal-container">
+                                    <div class="modal-content bg-dark" data-width="60%" data-height="60%"> <iframe data-src="https://www.youtube.com/" allowfullscreen="allowfullscreen"></iframe> </div>
+                                </div>
+                            </div> <span class="block--xs">and see how Belajar makes your life fun</span> </div>
+                    </div>
+                </div>
+            </section>
+            <section class="space--xxs">
+                <div class="container">
+                    <div class="row text-block">
+                        <div class="col-md-12">
+                            <h3>More recent stories</h3>
+                        </div>
+			<div class="col-12 text-right"> <%= link_to 'View More', stories_path %> </div>
+                    </div>
+                    <div class="row">
+                      <%	 @stories.each do |w| %>
+                        <div class="col-md-4">
+                            <article class="feature feature-1">
+                              <%= link_to story_path(w), class: "block" do %>
+                                <%= image_tag w.image %>
+                              <% end %>
+                                <div class="feature__body boxed boxed--border"> <em> Speaker: <%= w.speaker.name.titleize %> <%if w.speaker.category == "admin" %><i class="fa fa-check-circle" title="Admin"></i> <%end%></em>
+                                    <h5><%= w.title.titleize %></h5>
+                                    <%= link_to "Read More", story_path(w) %>
+
+                                </div>
+
+                            </article>
+                        </div>
+                        <%	 end %>
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-format="fluid"
+                             data-ad-layout-key="-6t+ed+2i-1n-4w"
+                             data-ad-client="ca-pub-4268093070731551"
+                             data-ad-slot="9871770800"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </section>
+            <section class="bg--secondary space--xs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <h4>Featured Speaker</h4>
+                        </div>
+                        <div class="col-6 text-right"> <%= link_to 'View More', speakers_path %> </div>
+                    </div>
+                    <div class="row">
+                      <% @speaker.each do |p| %>
+                        <div class="col-md-3 col-6 feature-1">
+                            <%= link_to speaker_path(p), class: "feature feature-1 block" do %> <%= image_tag p.image %>
+                            <div class="boxed--border">
+                                <h5 class="mb--0"> <%= p.name %> <%if p.category == "admin" %><i class="fa fa-check-circle" title="Admin"></i> <%end%></h5>
+                                <div><%= p.job.titleize %></div>
+                            </div>
+                           <% end %>
+                        </div>
+                      <% end %>
+                    </div>
+                </div>
+            </section>
+            <%= render 'layouts/footer' %>

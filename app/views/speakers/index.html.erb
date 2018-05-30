@@ -1,0 +1,25 @@
+<%= render 'layouts/navbar' %>
+            <section class="bg--secondary space--xxs">
+                <div class="container">
+                    <div class="row text-block">
+                        <div class="col-md-12">
+                            <h3>Our Speakers<br></h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <% @speakers.each do |s| %>
+                        <div class="col-md-4 ">
+                            <article class="feature feature-1">
+                                <%= link_to speaker_path(s), class: "block border--round box-shadow-wide" do %> <%= image_tag s.image %> <%end%>
+                                <div class="feature__body boxed boxed--border"> <span><%= s.job %></span>
+                                    <h5><%= s.name %> <%if s.category == "admin" %><i class="fa fa-check-circle" title="Admin"></i> <%end%></h5>
+                                    <%= link_to 'Go to Profile' , speaker_path(s) %>
+                                </div>
+                            </article>
+                        </div>
+                        <% end %>
+                        <div class="col-12 text-center"><%= will_paginate @speakers %> </div>
+                    </div>
+                </div>
+            </section>
+            <%= render 'layouts/footer' %>

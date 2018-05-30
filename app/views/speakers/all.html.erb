@@ -1,0 +1,63 @@
+<%= render 'layouts/navbar' %>
+<section class="switchable space--xxs switchable--switch">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="height-50 imagebg border--round" data-overlay="2">
+                    <div class="background-image-holder"><%= image_tag "img/education-3.jpg" %></div>
+                    <div class="pos-vertical-center col-md-6 boxed boxed--lg bg--none">
+                        <h2>Admin Dashboard</h2>
+                        <p class="lead"> Tambahkan sebuah story atau speaker yang menurut kamu layak untuk di Tambahkan. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="space--xxs">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-md-9">
+                <h4>Speakers -- All</h4>
+                <table class="border--round table--alternate-row">
+                  <thead>
+                  <tr>
+                    <th>Create</th>
+                    <th>Nama</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+
+                  <tbody>
+                  <% @speakers.each do |all| %>
+                  <tr>
+                    <td><%= all.created_at.strftime("%d %b %Y") %></td>
+                    <td><%= all.name %></td>
+                    <td><%= all.job %></td>
+                    <td><%= link_to 'Edit', edit_speaker_path(all) %> | <%= link_to "Hapus", speaker_path(all), method: :delete, data: {confirm: "Yakin nih?"} %></td>
+                  </tr>
+                  <% end %>
+                  </tbody>
+
+                </table>
+                <div class="col-12 text-center"><%= will_paginate @speakers %> </div>
+                </div>
+            <div class="col-md-3">
+                <div class="boxed boxed--lg boxed--border bg--secondary center">
+                    <h5>Menu</h5>
+                    <ul>
+                        <li>
+                          <%= link_to new_speaker_path, class: "btn btn--sm btn--primary type--uppercase" do %>
+                            <span class="btn__text">
+                            Add Speaker
+                            </span>
+                          <% end %>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<%= render 'layouts/footer' %>

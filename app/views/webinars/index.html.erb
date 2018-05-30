@@ -1,0 +1,26 @@
+<%= render 'layouts/navbar' %>
+            <section class="bg--secondary space--xxs">
+                <div class="container">
+                    <div class="row text-block">
+                        <div class="col-md-12">
+                            <h3>Upcoming Webinars<br></h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <% @webinars.each do |s| %>
+                        <div class="col-md-4 ">
+                            <article class="feature feature-1">
+                                <%= link_to webinar_path(s), class: "block border--round box-shadow-wide" do %> <%= image_tag s.image %> <%end%>
+                                <div class="feature__body boxed boxed--border"><h5><%= s.title %></h5> <em>Speaker: <%= s.speaker.name %> <%if s.speaker.category == "admin" %><i class="fa fa-check-circle" title="Admin"></i> <%end%></em><br>
+                                  <em><%= s.date.strftime("%d %b %Y, Pukul %H:%M ") %> </em>
+
+                                    <%= link_to 'Go to Webinar' , webinar_path(s) %>
+                                </div>
+                            </article>
+                        </div>
+                        <% end %>
+                        <div class="col-12 text-center"><%= will_paginate @webinars %> </div>
+                    </div>
+                </div>
+            </section>
+            <%= render 'layouts/footer' %>
