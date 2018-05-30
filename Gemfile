@@ -46,7 +46,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'pundit'
-
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 
 group :development, :test do

@@ -1,7 +1,7 @@
 <%= render 'layouts/navbar' %>
 
 
-            <section class="space--xxs">
+            <section class="space--xxs bg--secondary">
                 <div class="container">
                     <div class="row text-block">
                         <div class="col-md-12">
@@ -15,15 +15,28 @@
                               <%= link_to story_path(w), class: "block" do %>
                                 <%= image_tag w.image %>
                               <% end %>
-                                <div class="feature__body boxed boxed--border"> <em> Speaker: <%= w.speaker.name.titleize %></em>
+                                <div class="feature__body boxed boxed--border"> <em> Speaker: <%= w.speaker.name.titleize %> <%if w.speaker.category == "admin" %><i class="fa fa-check-circle" title="Admin"></i> <%end%></em>
                                     <h5><%= w.title.titleize %></h5>
                                     <%= link_to "Read More", story_path(w) %>
                                 </div>
                             </article>
+
                         </div>
                         <%	 end %>
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-format="fluid"
+                             data-ad-layout-key="-6t+ed+2i-1n-4w"
+                             data-ad-client="ca-pub-4268093070731551"
+                             data-ad-slot="9871770800"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                        <div class="col-12 text-center"><%= will_paginate @stories %> </div>
+
                     </div>
                 </div>
             </section>
-            
+
             <%= render 'layouts/footer' %>

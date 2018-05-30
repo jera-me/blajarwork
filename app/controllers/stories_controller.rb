@@ -1,9 +1,9 @@
 class StoriesController < ApplicationController
   def index
-    @stories = Story.order(created_at: :desc).limit(9)
+    @stories = Story.order(created_at: :desc).paginate(per_page: 9, page: params[:page])
     @speaker = Speaker.all
 
-    @meta_title = meta_title 'Home'
+    @meta_title = meta_title 'Upcoming'
     @webinar = Webinar.order(date: :asc).limit(4)
     @webinars = Webinar.order(date: :asc).limit(2)
   end
@@ -17,7 +17,7 @@ class StoriesController < ApplicationController
   end
 
   def all
-    @stories = Story.order(created_at: :desc)
+    @stories = Story.order(created_at: :desc).paginate(per_page: 9, page: params[:page])
     authorize @stories
   end
 
